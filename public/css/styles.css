@@ -1,0 +1,10 @@
+body {
+  background-image: url("/../images/food.jpg");
+}
+
+.container {
+  background-color: white;
+  opacity: 0.6;
+  margin-top: 10px;
+  padding-bottom: 10px;
+}
