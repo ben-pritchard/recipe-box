@@ -23,4 +23,5 @@ describe(Recipe) do
       expect(Recipe.rating(5)).to(eq(rated_5))
     end
   end
+
 end

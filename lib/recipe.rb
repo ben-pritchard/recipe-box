@@ -3,11 +3,9 @@ class Recipe < ActiveRecord::Base
   validates(:name, :presence => true)
   before_save(:upcase_name)
 
-
-  #
-  # scope(:rating, -> do |stars|
-  #   where({:rating => stars})
-  # end)
+  scope(:rating, -> (stars) do
+    where({:rating => stars})
+  end)
 
   private
     define_method(:upcase_name) do

@@ -9,8 +9,12 @@ end
 
 post("/recipes") do
   name = params.fetch("name")
-  @new_recipe = Recipe.create({:name => name})
-  erb(:add_recipe)
+  @new_recipe = Recipe.new({:name => name})  
+  if @new_recipe.save()
+    erb(:add_recipe)
+  else
+    erb(:error)
+  end
 end
 
 post("/ingredients") do
@@ -32,4 +36,9 @@ get("/recipes/:id") do
   recipe_id = params.fetch("id").to_i()
   @recipe = Recipe.find(recipe_id)
   erb(:show_recipe)
+end
+
+get("/clear") do
+  Recipe.destroy_all()
+  redirect("/")
 end
