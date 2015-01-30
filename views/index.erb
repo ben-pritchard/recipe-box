@@ -11,13 +11,15 @@
 
 <button type="submit" class="btn"><a href="/clear">Clear all recipes</a></button>
 
+<button type="submit" class="btn"><a href="/rating4">Show all 4 Star Recipes</a></button>
+
 
 
 <% if @recipes != nil %>
   <h3>All your saved recipes:</h3>
   <ol>
   <% @recipes.each() do |recipe| %>
-      <li><h4><a href="/recipes/<%=recipe.id()%>"><%= recipe.name() %></a></h4></li>
+      <li><h4><a href="/ratings/<%=recipe.id()%>"><%= recipe.name() %> - add rating</a></h4></li>
   <% end %>
   </ol>
 <% end %>
