@@ -1,0 +1,43 @@
+<h1><%= @recipe.name.upcase %> recipe info:</h1>
+
+<h3>Ingredients:</h3>
+
+<% if @recipe.ingredients != nil %>
+  <ul>
+  <% @recipe.ingredients.each() do |ingredient| %>
+      <li><%= ingredient.name() %></li>
+  <% end %>
+  </ul>
+<% end %>
+
+<h3>Instructions:</h3>
+
+<%= @recipe.instructions %>
+
+
+<h3>Recipe Rating:</h3>
+
+<% stars = @recipe.rating %>
+
+<% 5.times() do |index|%>
+  <% if stars > 0 %>
+    <div class="rating">
+      <form action="/rate/<%= @recipe.id %>" method="post">
+        <button type="submit" class="btn btn-sm"><span class="glyphicon glyphicon-star" aria-hidden="true"></span></button>
+        <input name="rating" value="<%= index+1 %>" type="hidden">
+      </form>
+    </div>
+    <% stars = stars - 1 %>
+  <% else %>
+    <div class="rating">
+      <form action="/rate/<%= @recipe.id %>" method="post">
+        <button type="submit" class="btn btn-sm"><span class="glyphicon glyphicon-star-empty" aria-hidden="true"></span></button>
+        <input name="rating" value="<%= index+1 %>" type="hidden">
+      </form>
+    </div>
+  <% end %>
+<% end %>
+
+<form action="/">
+  <button type="submit" class="btn btn-success">Back to Main Page</button>
+</form>

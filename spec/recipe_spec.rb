@@ -3,6 +3,8 @@ require("spec_helper")
 describe(Recipe) do
   it { should have_and_belong_to_many(:ingredients) }
 
+  it { should have_and_belong_to_many(:categories) }
+
   it("validates the presence of the name field for Recipe objects") do
     pizza = Recipe.new({:name => ""})
     expect(pizza.save()).to(eq(false))

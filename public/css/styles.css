@@ -8,3 +8,11 @@ body {
   margin-top: 10px;
   padding-bottom: 10px;
 }
+
+.rating {
+  display: inline-block;
+}
+
+.btn {
+  margin-bottom: 10px;
+}
