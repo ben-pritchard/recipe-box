@@ -1,5 +1,14 @@
 <h1>Welcome to your Recipe Box of Tasty Magic!</h1>
 
+<% if @recipes != nil %>
+  <h3>All your saved recipes:</h3>
+  <ol>
+  <% @recipes.each() do |recipe| %>
+      <li><h4><a href="/recipes/<%=recipe.id()%>"><%= recipe.name() %></a></h4></li>
+  <% end %>
+  </ol>
+<% end %>
+
 <h3>Add a new recipe:</h3>
 
 <form action="/recipes" method="post">
@@ -16,13 +25,3 @@
 <form action="/add_dummy_recipes" method="post">
   <button type="submit" class="btn btn-success">Add dummy recipes</button>
 </form>
-
-
-<% if @recipes != nil %>
-  <h3>All your saved recipes:</h3>
-  <ol>
-  <% @recipes.each() do |recipe| %>
-      <li><h4><a href="/recipes/<%=recipe.id()%>"><%= recipe.name() %></a></h4></li>
-  <% end %>
-  </ol>
-<% end %>

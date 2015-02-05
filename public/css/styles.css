@@ -3,8 +3,9 @@ body {
 }
 
 .container {
-  background-color: white;
-  opacity: 0.6;
+  background-color: hsla(53, 100%, 82%, 0.62);
+
+  /*opacity: 0.6;*/
   margin-top: 10px;
   padding-bottom: 10px;
 }
@@ -15,4 +16,8 @@ body {
 
 .btn {
   margin-bottom: 10px;
+}
+
+.glyphicon {
+  color: yellow;
 }
