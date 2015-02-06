@@ -17,9 +17,13 @@
 
 <h3>Recipe Rating:</h3>
 
-<% stars = @recipe.rating %>
+<% if @recipe.rating %>
+  <% stars = @recipe.rating %>
+<% else %>
+  <% stars = 3 %>
+<% end %>
 
-<% 5.times() do |index|%>
+<% 5.times() do |index| %>
   <% if stars > 0 %>
     <div class="rating">
       <form action="/rate/<%= @recipe.id %>" method="post">

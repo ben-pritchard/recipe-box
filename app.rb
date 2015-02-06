@@ -49,8 +49,9 @@ patch("/rating") do
   redirect("/")
 end
 
-get("/rating4") do
-  @recipes = Recipe.rating(4)
+get("/rating/:rating") do
+  rating = params.fetch("rating")
+  @recipes = Recipe.rating(rating)
   erb(:index)
 end
 

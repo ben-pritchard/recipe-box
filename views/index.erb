@@ -18,10 +18,23 @@
   <button type="submit" class="btn">Add recipe</button>
 </form>
 
-<button type="submit" class="btn"><a href="/clear">Clear all recipes</a></button>
-
-<button type="submit" class="btn"><a href="/rating4">Show all 4 Star Recipes</a></button>
-
 <form action="/add_dummy_recipes" method="post">
   <button type="submit" class="btn btn-success">Add dummy recipes</button>
 </form>
+
+<button type="submit" class="btn"><a href="/clear">Clear all recipes</a></button>
+
+<h4>Show Recipies with Rating:</h4>
+
+<form action="/">
+  <button type="submit" class="btn btn-primary btn-sm">Show All</button>
+</form>
+
+<% 5.times() do |index|%>
+  <div class="rating">
+    <form action="/rating/<%= index+1 %>">
+      <button type="submit" class="btn btn-primary btn-sm"><%= index+1 %> Star</button>
+      <input name="rating" value="<%= index+1 %>" type="hidden">
+    </form>
+  </div>
+<% end %>
